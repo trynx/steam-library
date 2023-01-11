@@ -1,6 +1,8 @@
 import { Space } from "antd";
 import { useState } from "react";
+import { RecipeCard } from "../components/RecipeCard";
 import { SearchRecipes } from "../components/SearchRecipes";
+import styles from "./RootLayout.module.css";
 
 export const RootLayout = () => {
   const [searchValue, setSearchValue] = useState("");
@@ -8,10 +10,10 @@ export const RootLayout = () => {
   console.log("Search:", searchValue);
 
   return (
-    <main>
+    <main className={styles.main}>
       <Space direction="vertical">
         <SearchRecipes onSearch={setSearchValue} />
-        {/* TODO: Vlad add your component here */}
+        <RecipeCard />
       </Space>
     </main>
   );
