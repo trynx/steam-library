@@ -10,7 +10,7 @@ const fetchRecipes = async () => {
   return res.json();
 };
 
-export const RecipeCard = (props) => {
+export const RecipeCard = () => {
   const { isLoading, error, data } = useQuery("recipes", fetchRecipes);
 
   if (isLoading) return "Loading...";
