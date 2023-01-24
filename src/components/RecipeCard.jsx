@@ -1,23 +1,11 @@
 import { Card } from "antd";
-import { useQuery } from "react-query";
 
 const { Meta } = Card;
 
-const fetchRecipes = async () => {
-  const res = await fetch(
-    "https://www.themealdb.com/api/json/v1/1/search.php?f=a"
-  );
-  return res.json();
-};
+export const RecipeCard = ({ recipes }) => {
+  const meals = recipes.meals;
 
-export const RecipeCard = () => {
-  const { isLoading, error, data } = useQuery("recipes", fetchRecipes);
-
-  if (isLoading) return "Loading...";
-
-  if (error) return "An error has occurred: " + error.message;
-
-  const meals = data.meals;
+  if (meals === null) return <div>No Results Found</div>;
 
   const mealElements = meals.map((mealData) => {
     return (

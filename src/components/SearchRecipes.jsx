@@ -23,7 +23,7 @@ export const SearchRecipes = ({ onSearch }) => {
     const timeOut = setTimeout(() => {
       setSearchValue(value);
       onSearch(value);
-    }, 150);
+    }, 300);
 
     setTimeOutId(timeOut);
   };
@@ -31,7 +31,7 @@ export const SearchRecipes = ({ onSearch }) => {
   return (
     <>
       <Search
-        placeholder='Search a recipe 📃'
+        placeholder="Search a recipe 📃"
         allowClear
         onSearch={searchHandler}
         style={{
