@@ -1,10 +1,13 @@
 import { Space } from "antd";
 import { useState } from "react";
 import { useQuery } from "react-query";
+import { useNavigate } from "react-router-dom";
 import { RecipeCard } from "../components/RecipeCard";
 import { SearchRecipes } from "../components/SearchRecipes";
 
 export const MainPage = () => {
+  const navigate = useNavigate();
+
   const [searchValue, setSearchValue] = useState("");
   let url;
   const fetchRecipes = async () => {
@@ -21,6 +24,10 @@ export const MainPage = () => {
     fetchRecipes
   );
 
+  const showRecipeHandler = (mealData) => {
+    navigate(`/recipe-info/${mealData.idMeal}`, { state: { mealData } });
+  };
+
   if (isLoading) return "Loading...";
 
   if (error) return "An error has occurred: " + error.message;
@@ -28,7 +35,7 @@ export const MainPage = () => {
   return (
     <Space direction="vertical">
       <SearchRecipes onSearch={setSearchValue} />
-      <RecipeCard recipes={data} />
+      <RecipeCard recipes={data} onClick={showRecipeHandler} />
     </Space>
   );
 };
