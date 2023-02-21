@@ -25,7 +25,7 @@ export const MainPage = () => {
   );
 
   const showRecipeHandler = (mealData) => {
-    navigate(`/recipe-info/${mealData.idMeal}`, { state: { mealData } });
+    navigate(`/recipe-info/${mealData.idMeal}`);
   };
 
   if (isLoading) return "Loading...";

@@ -5,4 +5,4 @@ The project is about to have a view of recipes and be able to filter them out by
 
 ## Page
 
-This project is running on this website: https://steam-library.vercel.app
+This project is running on this website: https://yumcipes.vercel.app
